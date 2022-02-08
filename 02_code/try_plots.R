@@ -98,11 +98,11 @@ ggplot(filter(dalyoutput_cost3, costing_group=="dose2.69+delivery0.96")) +
        colour="Scenario") +
   theme_classic()
 
-ggplot(filter(dalyoutput_cost3, costing_group=="dose2.69+delivery0.96")) +
+ggplot(filter(dalyoutput_cost3, costing_group=="dose2.69+delivery0.96" & resistance==0)) +
   geom_point(aes(x=dalys_averted, y = cost, colour=reorder(scenario, dalys_averted))) +
   scale_colour_brewer(palette="Paired") +
   geom_vline(xintercept=0) +
-  facet_wrap(pfpr_label~ITNuse_label) +
+  facet_wrap(seasonality~ITNuse_label) +
   geom_hline(yintercept=0) +
   labs(title="Cost per dose = 2.69 + delivery cost = 0.96",
        x="DALYs averted", y = "Cost (dollars)",
